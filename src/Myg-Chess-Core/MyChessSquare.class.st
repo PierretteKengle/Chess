@@ -254,6 +254,12 @@ MyChessSquare >> renderPawn: aPiece [
 ]
 
 { #category : 'rendering' }
+MyChessSquare >> renderPiece: aPiece [
+    "Délègue la représentation à la pièce en lui donnant la couleur de la case"
+    ^ aPiece symbolOnSquareColor: color
+]
+
+{ #category : 'rendering' }
 MyChessSquare >> renderQueen: aPiece [
 
 	^ aPiece isWhite

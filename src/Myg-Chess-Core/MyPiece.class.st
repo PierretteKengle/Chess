@@ -194,6 +194,12 @@ MyPiece >> square: aMyChessSquare [
 	square := aMyChessSquare
 ]
 
+{ #category : 'as yet unclassified' }
+MyPiece >> symbolOnSquareColor: aColor [
+    "Par défaut, déléguer à une méthode plus précise, ou lever une erreur pour forcer les sous-classes"
+    self subclassResponsibility
+]
+
 { #category : 'rendering' }
 MyPiece >> targetSquares [
 

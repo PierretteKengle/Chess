@@ -18,6 +18,14 @@ MyKnight >> renderPieceOn: aSquare [
 ]
 
 { #category : 'rendering' }
+MyKnight >> symbolOnSquareColor: aColor [
+    "Renvoie le caractère selon la couleur de la pièce et la couleur de la case."
+    ^ (self isWhite)
+        ifTrue: [ aColor isBlack ifTrue: [ 'N' ] ifFalse: [ 'n' ] ]
+        ifFalse: [ aColor isBlack ifTrue: [ 'M' ] ifFalse: [ 'm' ] ].
+]
+
+{ #category : 'rendering' }
 MyKnight >> targetSquaresLegal: aBoolean [
 
 	^ {
