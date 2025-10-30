@@ -18,11 +18,29 @@ MyKnight >> renderPieceOn: aSquare [
 ]
 
 { #category : 'rendering' }
+MyKnight >> renderTable [
+    ^ Dictionary newFrom: {
+        true -> (Dictionary newFrom: {
+            #black -> 'N'.
+            #white -> 'n'
+        }).
+        false -> (Dictionary newFrom: {
+            #black -> 'M'.
+            #white -> 'm'
+        })
+    }
+]
+
+{ #category : 'rendering' }
 MyKnight >> symbolOnSquareColor: aColor [
-    "Renvoie le caractère selon la couleur de la pièce et la couleur de la case."
-    ^ (self isWhite)
-        ifTrue: [ aColor isBlack ifTrue: [ 'N' ] ifFalse: [ 'n' ] ]
-        ifFalse: [ aColor isBlack ifTrue: [ 'M' ] ifFalse: [ 'm' ] ].
+    | colorKey |
+    colorKey := (aColor respondsTo: #isBlack) 
+        ifTrue: [ aColor isBlack ifTrue: [ #black ] ifFalse: [ #white ] ]
+        ifFalse: [ aColor ]. 
+
+    ^ ((self renderTable at: self isWhite) 
+        at: colorKey 
+        ifAbsent: [ '?' ])
 ]
 
 { #category : 'rendering' }
