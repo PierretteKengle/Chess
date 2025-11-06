@@ -14,7 +14,30 @@ MyPawn >> id [
 { #category : 'rendering' }
 MyPawn >> renderPieceOn: aSquare [ 
 	
-	^ aSquare renderPawn: self
+	^ aSquare renderPiece: self
+]
+
+{ #category : 'rendering' }
+MyPawn >> renderTable [
+    ^ Dictionary newFrom: {
+        true -> (Dictionary newFrom: {
+            #black -> 'P'.
+            #white -> 'p'
+        }).
+        false -> (Dictionary newFrom: {
+            #black -> 'O'.
+            #white -> 'o'
+        })
+    }
+]
+
+{ #category : 'as yet unclassified' }
+MyPawn >> symbolOnSquareColor: aColor [
+    | colorKey |
+    colorKey := (aColor isBlack) ifTrue: [ #black ] ifFalse: [ #white ].
+    ^ ((self renderTable at: self isWhite)
+        at: colorKey
+        ifAbsent: [ '?' ])
 ]
 
 { #category : 'rendering' }

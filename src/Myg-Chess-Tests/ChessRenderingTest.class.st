@@ -109,6 +109,46 @@ ChessRenderingTest >> testKnightRenderingOnWhiteSquareWhenPieceIsWhite [
 ]
 
 { #category : 'tests' }
+ChessRenderingTest >> testPawnRenderingOnBlackSquareWhenPieceIsBlack [
+    | square piece |
+    square := MyChessSquare black.
+    piece := MyPawn black.
+    self assert: (square renderPiece: piece) equals: 'O'.
+
+
+
+
+]
+
+{ #category : 'tests' }
+ChessRenderingTest >> testPawnRenderingOnBlackSquareWhenPieceIsWhite [
+    | square piece |
+    square := MyChessSquare black.
+    piece := MyPawn white.
+    self assert: (square renderPiece: piece) equals: 'P'.
+
+
+]
+
+{ #category : 'tests' }
+ChessRenderingTest >> testPawnRenderingOnWhiteSquareWhenPieceIsBlack [
+    | square piece |
+    square := MyChessSquare white.
+    piece := MyPawn black.
+    self assert: (square renderPiece: piece) equals: 'o'.
+
+
+]
+
+{ #category : 'tests' }
+ChessRenderingTest >> testPawnRenderingOnWhiteSquareWhenPieceIsWhite [
+    | square piece |
+    square := MyChessSquare white.
+    piece := MyPawn white.
+    self assert: (square renderPiece: piece) equals: 'p'.
+]
+
+{ #category : 'tests' }
 ChessRenderingTest >> testQueenRenderingOnBlackSquareWhenPieceIsBlack [
     | square piece |
     square := MyChessSquare black.
