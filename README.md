@@ -50,6 +50,8 @@ This repository contains:
 
 ## Refactor piece rendering (KANTO RASOANAIVO et CATHY KENGLE)
 
+**NB:** Nous avons travailler sur une même branche et sur un seul compte github. 
+
 **Goal:** Practice refactorings, double dispatch and table dispatch
 
 The game renders pieces with methods that look like these:
