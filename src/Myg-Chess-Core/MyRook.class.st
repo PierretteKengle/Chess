@@ -13,7 +13,30 @@ MyRook >> id [
 { #category : 'rendering' }
 MyRook >> renderPieceOn: aSquare [
 
-	^ aSquare renderRook: self
+	^ aSquare renderPiece: self
+]
+
+{ #category : 'rendering' }
+MyRook >> renderTable [
+    ^ Dictionary newFrom: {
+        true -> (Dictionary newFrom: {
+            #black -> 'R'.
+            #white -> 'r'
+        }).
+        false -> (Dictionary newFrom: {
+            #black -> 'T'.
+            #white -> 't'
+        })
+    }
+]
+
+{ #category : 'rendering' }
+MyRook >> symbolOnSquareColor: aColor [
+    | colorKey |
+    colorKey := (aColor isBlack) ifTrue: [ #black ] ifFalse: [ #white ].
+    ^ ((self renderTable at: self isWhite)
+        at: colorKey
+        ifAbsent: [ '?' ])
 ]
 
 { #category : 'rendering' }

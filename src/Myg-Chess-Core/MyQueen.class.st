@@ -8,7 +8,30 @@ Class {
 { #category : 'rendering' }
 MyQueen >> renderPieceOn: aSquare [
 
-	^ aSquare renderQueen: self
+	^ aSquare renderPiece: self
+]
+
+{ #category : 'rendering' }
+MyQueen >> renderTable [
+    ^ Dictionary newFrom: {
+        true -> (Dictionary newFrom: {
+            #black -> 'Q'.
+            #white -> 'q'
+        }).
+        false -> (Dictionary newFrom: {
+            #black -> 'W'.
+            #white -> 'w'
+        })
+    }
+]
+
+{ #category : 'rendering' }
+MyQueen >> symbolOnSquareColor: aColor [
+    | colorKey |
+    colorKey := (aColor isBlack) ifTrue: [ #black ] ifFalse: [ #white ].
+    ^ ((self renderTable at: self isWhite)
+        at: colorKey
+        ifAbsent: [ '?' ])
 ]
 
 { #category : 'rendering' }

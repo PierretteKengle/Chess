@@ -72,7 +72,30 @@ MyKing >> opponentPieces [
 { #category : 'rendering' }
 MyKing >> renderPieceOn: aSquare [
 
-	^ aSquare renderKing: self
+	^ aSquare renderPiece: self
+]
+
+{ #category : 'rendering' }
+MyKing >> renderTable [
+    ^ Dictionary newFrom: {
+        true -> (Dictionary newFrom: {
+            #black -> 'K'.
+            #white -> 'k'
+        }).
+        false -> (Dictionary newFrom: {
+            #black -> 'L'.
+            #white -> 'l'
+        })
+    }
+]
+
+{ #category : 'rendering' }
+MyKing >> symbolOnSquareColor: aColor [
+    | colorKey |
+    colorKey := (aColor isBlack) ifTrue: [ #black ] ifFalse: [ #white ].
+    ^ ((self renderTable at: self isWhite)
+        at: colorKey
+        ifAbsent: [ '?' ])
 ]
 
 { #category : 'rendering' }
