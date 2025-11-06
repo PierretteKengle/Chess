@@ -78,6 +78,7 @@ Questions and ideas that can help you in the process:
 - What are the good and bad parts of them in *this scenario*? Do you understand why?
 
 **Problèmes :**
+
 ![1](https://github.com/user-attachments/assets/d01330f0-d589-4dc5-a31b-dfc91be77baf)
 
 - Forte dépendance entre MyChessSquare et les types de pièces (MyKnight, MyBishop, etc.)
