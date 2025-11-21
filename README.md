@@ -81,7 +81,7 @@ Questions and ideas that can help you in the process:
 
 ![1](https://github.com/user-attachments/assets/d01330f0-d589-4dc5-a31b-dfc91be77baf)
 
-- Forte dépendance entre MyChessSquare et les types de pièces (MyKnight, MyBishop, etc.)
+- Forte dépendance entre **MyChessSquare** et les types de pièces (MyKnight, MyBishop, etc.)
 - Difficulté à ajouter une nouvelle pièce (il faut modifier la case)
 - Multiplication des conditionnels ifTrue:/ifFalse:
 - Faible extensibilité et violation du principe de responsabilité unique (SRP)
@@ -178,7 +178,7 @@ Exemple de test (TDD)
 	    self assert: (square renderPiece: piece) equals: 'M'.
 
 ```
-
+**NB:** Nous avons procédé de la même manière pour toutes les autres pièces : MyBishop, MyQueen, MyKing, MyPawn, MyRook.
 
 ## Troubleshotting
 
