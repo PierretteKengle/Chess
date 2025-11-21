@@ -11,36 +11,28 @@ MyKnight >> id [
 	^ 'N'
 ]
 
-{ #category : 'rendering' }
-MyKnight >> renderPieceOn: aSquare [
+{ #category : 'as yet unclassified' }
+MyKnight >> renderingSquareBlackPieceBlack [ 
 
-	^ aSquare renderKnight: self
+	^ 'M'
 ]
 
-{ #category : 'rendering' }
-MyKnight >> renderTable [
-    ^ Dictionary newFrom: {
-        true -> (Dictionary newFrom: {
-            #black -> 'N'.
-            #white -> 'n'
-        }).
-        false -> (Dictionary newFrom: {
-            #black -> 'M'.
-            #white -> 'm'
-        })
-    }
+{ #category : 'as yet unclassified' }
+MyKnight >> renderingSquareBlackPieceWhite [ 
+
+	^ 'm'
 ]
 
-{ #category : 'rendering' }
-MyKnight >> symbolOnSquareColor: aColor [
-    | colorKey |
-    colorKey := (aColor respondsTo: #isBlack) 
-        ifTrue: [ aColor isBlack ifTrue: [ #black ] ifFalse: [ #white ] ]
-        ifFalse: [ aColor ]. 
+{ #category : 'as yet unclassified' }
+MyKnight >> renderingSquareWhitePieceBlack [ 
 
-    ^ ((self renderTable at: self isWhite) 
-        at: colorKey 
-        ifAbsent: [ '?' ])
+	^ 'N'
+]
+
+{ #category : 'as yet unclassified' }
+MyKnight >> renderingSquareWhitePieceWhite [ 
+
+	^ 'n'
 ]
 
 { #category : 'rendering' }

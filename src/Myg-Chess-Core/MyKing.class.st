@@ -69,33 +69,28 @@ MyKing >> opponentPieces [
 		  e notNil and: [ e color = color negated ] ]
 ]
 
-{ #category : 'rendering' }
-MyKing >> renderPieceOn: aSquare [
+{ #category : 'as yet unclassified' }
+MyKing >> renderingSquareBlackPieceBlack [ 
 
-	^ aSquare renderPiece: self
+	^ 'L'
 ]
 
-{ #category : 'rendering' }
-MyKing >> renderTable [
-    ^ Dictionary newFrom: {
-        true -> (Dictionary newFrom: {
-            #black -> 'K'.
-            #white -> 'k'
-        }).
-        false -> (Dictionary newFrom: {
-            #black -> 'L'.
-            #white -> 'l'
-        })
-    }
+{ #category : 'as yet unclassified' }
+MyKing >> renderingSquareBlackPieceWhite [
+
+	^ 'l'
 ]
 
-{ #category : 'rendering' }
-MyKing >> symbolOnSquareColor: aColor [
-    | colorKey |
-    colorKey := (aColor isBlack) ifTrue: [ #black ] ifFalse: [ #white ].
-    ^ ((self renderTable at: self isWhite)
-        at: colorKey
-        ifAbsent: [ '?' ])
+{ #category : 'as yet unclassified' }
+MyKing >> renderingSquareWhitePieceBlack [ 
+
+	^ 'K'
+]
+
+{ #category : 'as yet unclassified' }
+MyKing >> renderingSquareWhitePieceWhite [ 
+
+	^ 'k'
 ]
 
 { #category : 'rendering' }

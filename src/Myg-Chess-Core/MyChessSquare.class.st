@@ -198,12 +198,6 @@ MyChessSquare >> printOn: aStream [
 		print: name
 ]
 
-{ #category : 'rendering' }
-MyChessSquare >> renderPiece: aPiece [
-    "Délègue la représentation à la pièce en lui donnant la couleur de la case"
-    ^ aPiece symbolOnSquareColor: color
-]
-
 { #category : 'accessing' }
 MyChessSquare >> right [
 	

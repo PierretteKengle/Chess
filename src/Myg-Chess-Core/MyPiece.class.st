@@ -172,6 +172,49 @@ MyPiece >> moveTo: aSquare [
 ]
 
 { #category : 'rendering' }
+MyPiece >> renderPieceOn: aSquare [
+
+	^ self symbolOnSquareColor: aSquare color
+]
+
+{ #category : 'rendering' }
+MyPiece >> renderTable [
+    ^ Dictionary newFrom: {
+        true -> (Dictionary newFrom: {
+            #black -> self renderingSquareWhitePieceBlack.
+            #white -> self renderingSquareWhitePieceWhite
+        }).
+        false -> (Dictionary newFrom: {
+            #black -> self renderingSquareBlackPieceBlack.
+            #white -> self renderingSquareBlackPieceWhite
+        })
+    }
+]
+
+{ #category : 'as yet unclassified' }
+MyPiece >> renderingSquareBlackPieceBlack [
+^ self subclassResponsibility
+]
+
+{ #category : 'as yet unclassified' }
+MyPiece >> renderingSquareBlackPieceWhite [
+
+	^ self subclassResponsibility
+]
+
+{ #category : 'as yet unclassified' }
+MyPiece >> renderingSquareWhitePieceBlack [
+
+	^ self subclassResponsibility
+]
+
+{ #category : 'as yet unclassified' }
+MyPiece >> renderingSquareWhitePieceWhite [
+
+	^ self subclassResponsibility
+]
+
+{ #category : 'rendering' }
 MyPiece >> rightFile [
 
 	^ self rightFileLegal: false
@@ -194,10 +237,13 @@ MyPiece >> square: aMyChessSquare [
 	square := aMyChessSquare
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'rendering' }
 MyPiece >> symbolOnSquareColor: aColor [
-    "Par défaut, déléguer à une méthode plus précise, ou lever une erreur pour forcer les sous-classes"
-    self subclassResponsibility
+    | colorKey |
+    colorKey := (aColor isBlack) ifTrue: [ #black ] ifFalse: [ #white ].
+    ^ ((self renderTable at: self isWhite)
+        at: colorKey
+        ifAbsent: [ '?' ])
 ]
 
 { #category : 'rendering' }

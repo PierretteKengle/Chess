@@ -11,37 +11,28 @@ MyBishop >> id [
 	^ 'B'
 ]
 
-{ #category : 'rendering' }
-MyBishop >> renderPieceOn: aSquare [
+{ #category : 'as yet unclassified' }
+MyBishop >> renderingSquareBlackPieceBlack [
 
-	^ aSquare renderPiece: self
-	
-]
-
-{ #category : 'rendering' }
-MyBishop >> renderTable [
-    ^ Dictionary newFrom: {
-        true -> (Dictionary newFrom: {
-            #black -> 'B'.
-            #white -> 'b'
-        }).
-        false -> (Dictionary newFrom: {
-            #black -> 'V'.
-            #white -> 'v'
-        })
-    }
+	^ 'V'
 ]
 
 { #category : 'as yet unclassified' }
-MyBishop >> symbolOnSquareColor: aColor [
-    | colorKey |
-    colorKey := (aColor respondsTo: #isBlack)
-        ifTrue: [ aColor isBlack ifTrue: [ #black ] ifFalse: [ #white ] ]
-        ifFalse: [ aColor ].
+MyBishop >> renderingSquareBlackPieceWhite [ 
 
-    ^ ((self renderTable at: self isWhite)
-        at: colorKey
-        ifAbsent: [ '?' ])
+	^ 'v'
+]
+
+{ #category : 'as yet unclassified' }
+MyBishop >> renderingSquareWhitePieceBlack [
+
+	^ 'B'
+]
+
+{ #category : 'as yet unclassified' }
+MyBishop >> renderingSquareWhitePieceWhite [
+
+	^ 'b'
 ]
 
 { #category : 'rendering' }

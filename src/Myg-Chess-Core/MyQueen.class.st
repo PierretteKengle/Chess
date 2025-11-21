@@ -5,33 +5,28 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
-{ #category : 'rendering' }
-MyQueen >> renderPieceOn: aSquare [
+{ #category : 'as yet unclassified' }
+MyQueen >> renderingSquareBlackPieceBlack [ 
 
-	^ aSquare renderPiece: self
+	^ 'W'
 ]
 
-{ #category : 'rendering' }
-MyQueen >> renderTable [
-    ^ Dictionary newFrom: {
-        true -> (Dictionary newFrom: {
-            #black -> 'Q'.
-            #white -> 'q'
-        }).
-        false -> (Dictionary newFrom: {
-            #black -> 'W'.
-            #white -> 'w'
-        })
-    }
+{ #category : 'as yet unclassified' }
+MyQueen >> renderingSquareBlackPieceWhite [ 
+
+	^ 'w'
 ]
 
-{ #category : 'rendering' }
-MyQueen >> symbolOnSquareColor: aColor [
-    | colorKey |
-    colorKey := (aColor isBlack) ifTrue: [ #black ] ifFalse: [ #white ].
-    ^ ((self renderTable at: self isWhite)
-        at: colorKey
-        ifAbsent: [ '?' ])
+{ #category : 'as yet unclassified' }
+MyQueen >> renderingSquareWhitePieceBlack [
+
+	^ 'Q'
+]
+
+{ #category : 'as yet unclassified' }
+MyQueen >> renderingSquareWhitePieceWhite [
+
+	^ 'q'
 ]
 
 { #category : 'rendering' }
